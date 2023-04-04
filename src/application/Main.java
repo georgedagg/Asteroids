@@ -39,9 +39,10 @@ public class Main extends Application {
 		// Create a new ship using the Ship class
 		Ship ship = new Ship(300,200);
 		
-		// Create a a number of asteroids
+		// Create a a number of asteroids 
+		// Position the asteroid at a random point in the pane
 		List<Asteroid> asteroids = new ArrayList<>();
-		for(int i = 0; i < 2; i++) {
+		for(int i = 0; i < 10; i++) {
 			Random rnd = new Random();
 			Asteroid asteroid = new Asteroid(rnd.nextInt(600), rnd.nextInt(400));
 			asteroids.add(asteroid);
@@ -68,6 +69,7 @@ public class Main extends Application {
 		
 		// When keys are released, remove them from the pressedKeys hash set
 		scene.setOnKeyReleased(new EventHandler<KeyEvent>(){
+			// handle is called to manage the event handler (key released)
 			public void handle(KeyEvent event) {
 				pressedKeys.remove(event.getCode());
 				// Print to the console to see what's happening
